@@ -29,3 +29,88 @@
 .logo_place_header {
 	width: 100%;
 }
+
+/* SECTION PROFILE======================================================== */
+
+.profile {
+	width: 100%;
+	max-width: 880px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 40px;
+}
+
+.profile__info {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.profile__avatar {
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+	border-radius: 50%;
+	margin-right: 30px;
+}
+
+.profile__description {
+	width: 100%;
+	max-width: 336px;
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.profile__name {
+	margin: 0 18px 16px 0;
+	font-weight: 500;
+	font-size: 42px;
+	line-height: 48px;
+}
+
+.profile__post {
+	margin: 0;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.button {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	border: 0;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+}
+
+.button_action_edit {
+	width: 24px;
+	height: 24px;
+	border: 1px solid #fff;
+	background-image: url(./images/icon-pen.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 10px 10px;
+	background-color: #000;
+	align-self: center;
+}
+
+.button_action_add {
+	width: 150px;
+	height: 50px;
+	border: 1px solid #fff;
+	background-image: url(./images/icon-plus.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 22px 22px;
+	background-color: #000;
+	align-self: center;
+}
