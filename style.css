@@ -31,15 +31,16 @@
 }
 
 /* SECTION PROFILE======================================================== */
+.page__profile {
+	margin: 40px auto 0;
+}
 
 .profile {
 	width: 100%;
 	max-width: 880px;
-	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 40px;
 }
 
 .profile__info {
@@ -122,12 +123,13 @@
 }
 
 /* SECTION ELEMENTS======================================================= */
+.page__elements {
+	margin: 51px auto 0;
+}
 
 .elements {
 	width: 100%;
 	max-width: 880px;
-	margin: 0 auto;
-	margin-top: 51px;
 }
 
 .elements__items {
@@ -137,6 +139,10 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, 282px);
 	gap: 20px 17px;
+	align-items: center;
+	justify-items: center;
+	justify-content: center;
+	align-content: center;
 }
 
 .element {
@@ -180,4 +186,21 @@
 	background-size: 22px 19px;
 	background-color: #fff;
 	align-self: center;
+}
+
+/* FOOTER================================================================= */
+.page__footer {
+	margin: 66px auto 0;
+}
+
+.footer {
+	width: 100%;
+	max-width: 880px;
+}
+
+.footer__copyright {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	color: #545454;
 }
