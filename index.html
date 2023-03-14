@@ -5,11 +5,102 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./pages/index.css">
+	<link rel="stylesheet" href="./style.css">
 	<title>Mesto</title>
 </head>
 
-<body>
+<body class="page">
+	<div class="page__container">
 
+		<!-- HEADER -->
+
+		<header class="header">
+			<img src="./images/logo.svg" alt="Логотип" class="logo logo_place_header">
+		</header>
+
+		<!-- CONTENT -->
+
+		<main class="content">
+
+			<!-- SECTION PROFILE -->
+
+			<section class="profile page__profile">
+				<div class="profile__info">
+					<img src="./images/Avatar.jpg" alt="Аватар" class="profile__avatar">
+					<div class="profile__description">
+						<h1 class="profile__name">Жак-Ив Кусто</h1>
+						<button class="button button_action_edit"></button>
+						<p class="profile__post">Исследователь океана</p>
+					</div>
+				</div>
+				<button class="button button_action_add"></button>
+			</section>
+
+			<!-- SECTION ELEMENTS -->
+
+			<section class="elements page__elements">
+				<ul class="elements__items">
+					<li class="element">
+						<img src="./images/Karachaevck.jpg" alt="Карачаевск" class="element__image">
+						<div class="element__description">
+							<p class="element__title">Карачаевск</p>
+							<button class="button button_action_like"></button>
+						</div>
+					</li>
+
+					<li class="element">
+						<img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
+						<div class="element__description">
+							<p class="element__title">Гора Эльбрус</p>
+							<button class="button button_action_like"></button>
+						</div>
+					</li>
+
+					<li class="element">
+						<img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
+						<div class="element__description">
+							<p class="element__title">Домбай</p>
+							<button class="button button_action_like"></button>
+						</div>
+					</li>
+
+					<li class="element">
+						<img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
+						<div class="element__description">
+							<p class="element__title">Гора Эльбрус</p>
+							<button class="button button_action_like"></button>
+						</div>
+					</li>
+
+					<li class="element">
+						<img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
+						<div class="element__description">
+							<p class="element__title">Домбай</p>
+							<button class="button button_action_like"></button>
+						</div>
+					</li>
+
+					<li class="element">
+						<img src="./images/Karachaevck.jpg" alt="Карачаевск" class="element__image">
+						<div class="element__description">
+							<p class="element__title">Карачаево-Черкессия</p>
+							<button class="button button_action_like"></button>
+						</div>
+					</li>
+
+				</ul>
+			</section>
+
+		</main>
+
+		<!-- FOOTER -->
+
+		<footer class="footer page__footer">
+			<p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+		</footer>
+
+	</div>
 </body>
 
 </html>
