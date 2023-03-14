@@ -69,6 +69,9 @@
 	font-weight: 500;
 	font-size: 42px;
 	line-height: 48px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .profile__post {
@@ -76,6 +79,9 @@
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 22px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .button {
@@ -112,5 +118,66 @@
 	background-position: center;
 	background-size: 22px 22px;
 	background-color: #000;
+	align-self: center;
+}
+
+/* SECTION ELEMENTS======================================================= */
+
+.elements {
+	width: 100%;
+	max-width: 880px;
+	margin: 0 auto;
+	margin-top: 51px;
+}
+
+.elements__items {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 282px);
+	gap: 20px 17px;
+}
+
+.element {
+	background: #fff;
+	border-radius: 10px;
+}
+
+.element__image {
+	width: 100%;
+	object-fit: cover;
+	border-radius: 10px 10px 0 0;
+	display: block;
+}
+
+.element__description {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 25px 15px 31px 21px;
+}
+
+.element__title {
+	width: 100%;
+	max-width: 190px;
+	margin: 0;
+	font-weight: 900;
+	font-size: 24px;
+	line-height: 29px;
+	color: #000;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.button_action_like {
+	width: 22px;
+	height: 19px;
+	background-image: url(./images/icon-like.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 22px 19px;
+	background-color: #fff;
 	align-self: center;
 }
