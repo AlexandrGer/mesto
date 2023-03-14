@@ -30,11 +30,11 @@
 					<img src="./images/Avatar.jpg" alt="Аватар" class="profile__avatar">
 					<div class="profile__description">
 						<h1 class="profile__name">Жак-Ив Кусто</h1>
-						<button class="button button_action_edit"></button>
-						<p class="profile__post">Исследователь океана</p>
+						<button class="button button_action_edit" type="button"></button>
+						<p class="profile__about">Исследователь океана</p>
 					</div>
 				</div>
-				<button class="button button_action_add"></button>
+				<button class="button button_action_add" type="button"></button>
 			</section>
 
 			<!-- SECTION ELEMENTS -->
@@ -45,7 +45,7 @@
 						<img src="./images/Karachaevck.jpg" alt="Карачаевск" class="element__image">
 						<div class="element__description">
 							<p class="element__title">Карачаевск</p>
-							<button class="button button_action_like"></button>
+							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
 
@@ -53,7 +53,7 @@
 						<img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
 						<div class="element__description">
 							<p class="element__title">Гора Эльбрус</p>
-							<button class="button button_action_like"></button>
+							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
 
@@ -61,7 +61,7 @@
 						<img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
 						<div class="element__description">
 							<p class="element__title">Домбай</p>
-							<button class="button button_action_like"></button>
+							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
 
@@ -69,7 +69,7 @@
 						<img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
 						<div class="element__description">
 							<p class="element__title">Гора Эльбрус</p>
-							<button class="button button_action_like"></button>
+							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
 
@@ -77,7 +77,7 @@
 						<img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
 						<div class="element__description">
 							<p class="element__title">Домбай</p>
-							<button class="button button_action_like"></button>
+							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
 
@@ -85,7 +85,7 @@
 						<img src="./images/Karachaevck.jpg" alt="Карачаевск" class="element__image">
 						<div class="element__description">
 							<p class="element__title">Карачаево-Черкессия</p>
-							<button class="button button_action_like"></button>
+							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
 
@@ -101,6 +101,18 @@
 		</footer>
 
 	</div>
+
+	<div class="popup">
+		<form class="popup__container">
+			<button class="button button_action_close" type="button"></button>
+			<h3 class="popup__title">Редактировать профиль</h3>
+			<input type="text" class="popup__text popup__text_type_name" value="Жак-Ив Кусто">
+			<input type="text" class="popup__text popup__text_type_about" value="Исследователь океана">
+			<button class="button button_action_submit" type="button">Сохранить</button>
+		</form>
+	</div>
+
+	<script src="./scripts/script.js"></script>
 </body>
 
 </html>
