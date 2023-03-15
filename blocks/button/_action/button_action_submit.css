@@ -1,0 +1,23 @@
+.button_action_submit {
+	margin: 48px auto 37px;
+	padding: 14px 125px;
+	background-color: #000;
+	border-radius: 2px;
+	align-self: center;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 22px;
+	color: #fff;
+	opacity: 1;
+	transition: opacity 1s ease;
+}
+
+.button_action_submit:hover {
+	opacity: .8;
+}
+
+@media screen and (max-width: 540px) {
+	.button_action_submit {
+		padding: 14px 82px;
+	}
+}

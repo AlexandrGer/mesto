@@ -1,0 +1,27 @@
+.button_action_close {
+	width: 32px;
+	height: 32px;
+	background-image: url(./images/icon-cross.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: rgba(0, 0, 0, .0);
+	position: absolute;
+	top: -11%;
+	left: 101%;
+	opacity: 1;
+	transition: opacity 1s ease;
+}
+
+.button_action_close:hover {
+	opacity: .6;
+}
+
+@media screen and (max-width: 540px) {
+	.button_action_close {
+		width: 20px;
+		height: 20px;
+		top: -11%;
+		left: 93%;
+	}
+}

@@ -1,0 +1,12 @@
+.button {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	border: 0;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	font-family: 'Inter';
+	font-style: normal;
+	box-sizing: border-box;
+}
