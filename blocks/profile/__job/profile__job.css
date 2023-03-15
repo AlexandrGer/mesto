@@ -17,3 +17,9 @@
 		margin-bottom: 36px;
 	}
 }
+
+@media screen and (max-width: 424px) {
+	.profile__job {
+		max-width: 245px;
+	}
+}

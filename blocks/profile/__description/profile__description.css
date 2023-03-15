@@ -1,10 +1,7 @@
 .profile__description {
 	width: 100%;
-	/* max-width: 336px; */
 	display: flex;
 	flex-direction: column;
-	/* flex-wrap: wrap; */
-	align-items: baseline;
 }
 
 @media screen and (max-width: 699px) {
