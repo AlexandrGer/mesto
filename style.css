@@ -104,16 +104,23 @@
 
 .profile__description {
 	width: 100%;
-	max-width: 336px;
+	/* max-width: 336px; */
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: column;
+	/* flex-wrap: wrap; */
 	align-items: baseline;
 }
 
 @media screen and (max-width: 699px) {
 	.profile__description {
 		justify-content: center;
+		align-items: center;
 	}
+}
+
+.profile__container {
+	display: flex;
+	align-items: baseline;
 }
 
 .profile__name {
@@ -124,6 +131,7 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+	max-width: 294px;
 }
 
 @media screen and (max-width: 699px) {
@@ -135,7 +143,7 @@
 	}
 }
 
-.profile__about {
+.profile__job {
 	margin: 0;
 	font-weight: 400;
 	font-size: 18px;
@@ -143,10 +151,11 @@
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+	max-width: 336px;
 }
 
 @media screen and (max-width: 699px) {
-	.profile__about {
+	.profile__job {
 		font-size: 14px;
 		line-height: 17px;
 		text-align: center;
@@ -352,14 +361,13 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	/* display: flex; */
-	justify-content: center;
-	align-items: center;
 	display: none;
 }
 
 .popup_opened {
 	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .popup__container {
