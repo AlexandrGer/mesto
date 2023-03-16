@@ -15,7 +15,7 @@
 		<!-- HEADER -->
 
 		<header class="header">
-			<img src="./images/logo.svg" alt="Логотип" class="logo logo_place_header">
+			<img src="./images/logo.svg" alt="Логотип" class="logo">
 		</header>
 
 		<!-- CONTENT -->
@@ -45,7 +45,7 @@
 					<li class="element">
 						<img src="./images/Karachaevck.jpg" alt="Карачаевск" class="element__image">
 						<div class="element__description">
-							<p class="element__title">Карачаевск</p>
+							<h2 class="element__title">Карачаевск</h2>
 							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
@@ -53,7 +53,7 @@
 					<li class="element">
 						<img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
 						<div class="element__description">
-							<p class="element__title">Гора Эльбрус</p>
+							<h2 class="element__title">Гора Эльбрус</h2>
 							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
@@ -61,7 +61,7 @@
 					<li class="element">
 						<img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
 						<div class="element__description">
-							<p class="element__title">Домбай</p>
+							<h2 class="element__title">Домбай</h2>
 							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
@@ -69,7 +69,7 @@
 					<li class="element">
 						<img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
 						<div class="element__description">
-							<p class="element__title">Гора Эльбрус</p>
+							<h2 class="element__title">Гора Эльбрус</h2>
 							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
@@ -77,7 +77,7 @@
 					<li class="element">
 						<img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
 						<div class="element__description">
-							<p class="element__title">Домбай</p>
+							<h2 class="element__title">Домбай</h2>
 							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
@@ -85,7 +85,7 @@
 					<li class="element">
 						<img src="./images/Karachaevck.jpg" alt="Карачаевск" class="element__image">
 						<div class="element__description">
-							<p class="element__title">Карачаево-Черкессия</p>
+							<h2 class="element__title">Карачаево-Черкессия</h2>
 							<button class="button button_action_like" type="button"></button>
 						</div>
 					</li>
@@ -104,16 +104,18 @@
 	</div>
 
 	<div class="popup">
-		<form class="popup__container">
+		<div class="popup__container">
 			<button class="button button_action_close" type="button"></button>
-			<h3 class="popup__title">Редактировать профиль</h3>
-			<input type="text" required class="popup__text popup__text_type_name">
-			<input type="text" required class="popup__text popup__text_type_job">
-			<button class="button button_action_submit" type="submit">Сохранить</button>
-		</form>
+			<form action="" name="editProfile" class="form form_edit_profile">
+				<h3 class="popup__title">Редактировать профиль</h3>
+				<input type="text" required class="popup__text popup__text_type_name">
+				<input type="text" required class="popup__text popup__text_type_job">
+				<button class="button button_action_submit" type="submit">Сохранить</button>
+			</form>
+		</div>
 	</div>
 
-	<script src="./index.js"></script>
+	<script src="./scripts/index.js"></script>
 </body>
 
 </html>

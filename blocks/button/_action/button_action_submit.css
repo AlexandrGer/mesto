@@ -18,6 +18,10 @@
 
 @media screen and (max-width: 540px) {
 	.button_action_submit {
+		margin: 45px auto 25px;
 		padding: 14px 82px;
+		font-size: 14px;
+		line-height: 17px;
+		text-align: center;
 	}
 }

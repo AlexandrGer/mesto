@@ -9,6 +9,7 @@
 	align-self: center;
 	opacity: 1;
 	transition: opacity 1s ease;
+	margin: 5px 5px 0 0;
 }
 
 .button_action_like:hover {
