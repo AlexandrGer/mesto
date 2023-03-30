@@ -1,4 +1,4 @@
-.button_action_close {
+.popup__button-close {
 	width: 32px;
 	height: 32px;
 	background-image: url(../../../images/cross.svg);
@@ -7,20 +7,21 @@
 	background-size: cover;
 	background-color: rgba(0, 0, 0, .0);
 	position: absolute;
-	top: -11%;
-	left: 101%;
+	top: -40px;
+	right: -40px;
 	opacity: 1;
 	transition: opacity 1s ease;
 }
 
-.button_action_close:hover {
+.popup__button-close:hover {
 	opacity: .6;
 }
 
 @media screen and (max-width: 540px) {
-	.button_action_close {
+	.popup__button-close {
 		width: 20px;
 		height: 20px;
-		left: 93%;
+		right: 0;
+		top: -36px;
 	}
 }

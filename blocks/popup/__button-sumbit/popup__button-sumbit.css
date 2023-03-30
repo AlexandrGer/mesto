@@ -1,4 +1,4 @@
-.button_action_submit {
+.popup__button-sumbit {
 	margin: 48px auto 37px;
 	padding: 14px 125px;
 	background-color: #000;
@@ -12,12 +12,12 @@
 	transition: opacity 1s ease;
 }
 
-.button_action_submit:hover {
+.popup__button-sumbit:hover {
 	opacity: .8;
 }
 
 @media screen and (max-width: 540px) {
-	.button_action_submit {
+	.popup__button-sumbit {
 		margin: 45px auto 25px;
 		padding: 14px 82px;
 		font-size: 14px;

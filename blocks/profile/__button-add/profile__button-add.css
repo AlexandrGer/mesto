@@ -1,4 +1,4 @@
-.button_action_add {
+.profile__button-add {
 	width: 150px;
 	height: 50px;
 	border: 2px solid #fff;
@@ -13,12 +13,12 @@
 	transition: opacity 1s ease;
 }
 
-.button_action_add:hover {
+.profile__button-add:hover {
 	opacity: .6;
 }
 
 @media screen and (max-width: 699px) {
-	.button_action_add {
+	.profile__button-add {
 		width: 100%;
 		max-width: 282px;
 		background-size: 16px 16px;

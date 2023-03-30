@@ -1,4 +1,4 @@
-.button_action_edit {
+.profile__button-edit {
 	width: 24px;
 	height: 24px;
 	border: 1px solid #fff;
@@ -11,12 +11,12 @@
 	transition: opacity 1s ease;
 }
 
-.button_action_edit:hover {
+.profile__button-edit:hover {
 	opacity: .6;
 }
 
 @media screen and (max-width: 699px) {
-	.button_action_edit {
+	.profile__button-edit {
 		width: 18px;
 		height: 18px;
 		background-size: 7.5px 7.5px;
