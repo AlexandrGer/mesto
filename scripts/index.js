@@ -1,8 +1,6 @@
 // Кнопки
 const buttonEditProfile = document.querySelector('.profile__button-edit');
-//const closeButton = document.querySelector('.popup__button-close');
 const buttonAddNewCard = document.querySelector('.profile__button-add');
-//const submitButton = document.querySelector('.button_action_submit');
 const buttonDeleteCard = document.querySelector('.element__button-delete');
 
 // Переменные из секции Профиль
