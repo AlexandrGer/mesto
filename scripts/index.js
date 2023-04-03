@@ -15,14 +15,14 @@ const popupTypeEdit = document.querySelector('.popup_type_edit');
 const buttonCloseProfile = popupTypeEdit.querySelector('.popup__button-close');
 const nameInput = popupTypeEdit.querySelector('.popup__text_type_name');
 const jobInput = popupTypeEdit.querySelector('.popup__text_type_job');
-const formElementProfile = popupTypeEdit.querySelector('.popup__container');
+const formElementProfile = popupTypeEdit.querySelector('.form');
 
 // Попап Добавления Новых Карточек
 const popupTypeNewCard = document.querySelector('.popup_type_new-card');
 const buttonCloseCard = popupTypeNewCard.querySelector('.popup__button-close');
 const titleImg = popupTypeNewCard.querySelector('.popup__text_type_title');
 const srcImg = popupTypeNewCard.querySelector('.popup__text_type_src');
-const formElementImg = popupTypeNewCard.querySelector('.popup__container');
+const formElementImg = popupTypeNewCard.querySelector('.form');
 
 // Попап Просмотра Картинок
 const popupViewImg = document.querySelector('.popup_type_view-img');
@@ -85,7 +85,7 @@ function handleProfileFormSubmit(evt) {
 // Обработчик события ОТПРАВКИ формы Редактирования Профиля
 formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 
-//Функция добавления карточки через попап
+//Функция созадния карточки
 function addCard(srcImg, titleImg) {
 	const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
 
@@ -98,6 +98,7 @@ function addCard(srcImg, titleImg) {
 	cardElement.querySelector('.element__button-delete').addEventListener('click', function (evt) {
 		evt.target.closest('.element').remove();
 	})
+
 	cardElement.querySelector('.element__image').addEventListener('click', function () {
 		openPopup(popupViewImg);
 		popupTitleImg.textContent = titleImg;
@@ -105,7 +106,6 @@ function addCard(srcImg, titleImg) {
 		popupScalableImg.alt = titleImg;
 	})
 
-	cardList.prepend(cardElement);
 	return cardElement;
 }
 
@@ -118,9 +118,8 @@ initialCards.forEach(function (element) {
 //Функция присваивания значений из попапа в Карточку
 function handleImgFormSubmit(evt) {
 	evt.preventDefault();
-	addCard(srcImg.value, titleImg.value);
-	titleImg.value = '';
-	srcImg.value = '';
+	cardList.prepend(addCard(srcImg.value, titleImg.value));
+	formElementImg.reset();
 	closePopup(popupTypeNewCard);
 }
 
