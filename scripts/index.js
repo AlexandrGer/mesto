@@ -97,7 +97,7 @@ function addCard(srcImg, titleImg) {
 	});
 	cardElement.querySelector('.element__button-delete').addEventListener('click', function (evt) {
 		evt.target.closest('.element').remove();
-	})
+	});
 
 	cardElement.querySelector('.element__image').addEventListener('click', function () {
 		openPopup(popupViewImg);
@@ -120,6 +120,7 @@ function handleImgFormSubmit(evt) {
 	evt.preventDefault();
 	cardList.prepend(addCard(srcImg.value, titleImg.value));
 	formElementImg.reset();
+
 	closePopup(popupTypeNewCard);
 }
 
