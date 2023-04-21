@@ -15,16 +15,16 @@ const cardList = document.querySelector('.elements__items');
 
 //Переменные из Попапа Редактирования Пофиля
 const popupProfile = document.querySelector('.popup_type_edit');
-const formElementProfile = popupProfile.querySelector('.form');
-const nameInput = popupProfile.querySelector('.popup__text_type_name');
-const jobInput = popupProfile.querySelector('.popup__text_type_job');
+const formElementProfile = popupProfile.querySelector('.popup__form');
+const nameInput = popupProfile.querySelector('.popup__input_type_name');
+const jobInput = popupProfile.querySelector('.popup__input_type_job');
 const buttonClosePopupProfile = popupProfile.querySelector('.popup__button-close');
 
 //Переменные из Попапа Добавления Карточек
 const popupNewCard = document.querySelector('.popup_type_new-card');
-const formElementNewCard = popupNewCard.querySelector('.form');
-const nameImage = popupNewCard.querySelector('.popup__text_type_title');
-const srcImage = popupNewCard.querySelector('.popup__text_type_src');
+const formElementNewCard = popupNewCard.querySelector('.popup__form');
+const nameImage = popupNewCard.querySelector('.popup__input_type_title');
+const srcImage = popupNewCard.querySelector('.popup__input_type_src');
 const buttonClosePopupNewCard = popupNewCard.querySelector('.popup__button-close');
 
 //Переменные для попапа карточки
@@ -36,11 +36,32 @@ const buttonClosePopupSerchCard = popupSerchCard.querySelector('.popup__button-c
 // Функция открытия Попапа
 const openPopup = (popup) => {
 	popup.classList.add('popup_opened');
+	document.addEventListener('keydown', keyHandler);
+	mouseHandler();
 }
 
 // Функция закрытия Попапа
 const closePopup = (popup) => {
 	popup.classList.remove('popup_opened');
+	document.removeEventListener('keydown', keyHandler);
+}
+
+// Функция закрытия Попапа на Escape
+const keyHandler = (evt) => {
+	if (evt.key === 'Escape') {
+		closePopup(document.querySelector('.popup_opened'));
+	}
+}
+
+const mouseHandler = () => {
+	const popups = Array.from(document.querySelectorAll('.popup'));
+	popups.forEach((popupElement) => {
+		popupElement.addEventListener('click', function (evt) {
+			if (evt.target.classList.contains('popup')) {
+				evt.target.classList.remove('popup_opened');
+			}
+		})
+	})
 }
 
 // Функция которая при открытии заполняет Форму данными из Профиля
