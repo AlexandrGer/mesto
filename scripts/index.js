@@ -53,6 +53,25 @@ const keyHandler = (evt) => {
 	}
 }
 
+const disabledButton = (popup) => {
+	const buttonSubmit = popup.querySelector('.popup__button-submit');
+	buttonSubmit.classList.add('popup__button-submit_disabled');
+	buttonSubmit.setAttribute('disabled', true);
+}
+
+const deleteError = (popup) => {
+	const inputs = Array.from(popup.querySelectorAll('.popup__input'));
+	const errors = Array.from(popup.querySelectorAll('.popup__input-error'));
+	inputs.forEach((input, error) => {
+		input.classList.remove('popup__input_text_error');
+	});
+	errors.forEach((error) => {
+		error.classList.remove('popup__input-error_visible');
+		error.textContent = '';
+	})
+}
+
+// Функция закрытия Попапа щелчком по оверлею
 const mouseHandler = () => {
 	const popups = Array.from(document.querySelectorAll('.popup'));
 	popups.forEach((popupElement) => {
@@ -67,6 +86,8 @@ const mouseHandler = () => {
 // Функция которая при открытии заполняет Форму данными из Профиля
 const handleEditProfileClick = () => {
 	openPopup(popupProfile);
+	disabledButton(popupProfile);
+	deleteError(popupProfile);
 	nameInput.value = nameProfile.textContent;
 	jobInput.value = jobProfile.textContent;
 }
@@ -90,7 +111,9 @@ formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 
 buttonAddNewCard.addEventListener('click', () => {
 	openPopup(popupNewCard);
+	disabledButton(popupNewCard);
 });
+
 buttonClosePopupNewCard.addEventListener('click', () => {
 	closePopup(popupNewCard);
 });
