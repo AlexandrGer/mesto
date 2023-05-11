@@ -1,5 +1,6 @@
-// Попап
-const popup = document.querySelector('.popup');
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+import { initialCards, enableValidation } from './utils.js';
 
 // Кнопки
 const buttonEditProfile = document.querySelector('.profile__button-edit');
@@ -10,7 +11,7 @@ const nameProfile = document.querySelector('.profile__name');
 const jobProfile = document.querySelector('.profile__job');
 
 //====
-const cardTemplate = document.querySelector('#cards-element');
+// const cardTemplate = document.querySelector('#cards-element');
 const cardList = document.querySelector('.elements__items');
 
 //Переменные из Попапа Редактирования Пофиля
@@ -118,50 +119,22 @@ buttonClosePopupNewCard.addEventListener('click', () => {
 	closePopup(popupNewCard);
 });
 
-const createCardElement = (cardData) => {
-	const cardElement = cardTemplate.content.querySelector('.element').cloneNode(true);
-	const cardName = cardElement.querySelector('.element__title');
-	const cardImage = cardElement.querySelector('.element__image');
+const viewPicture = (image) => {
+	openPopup(popupSerchCard);
+	nameCard.textContent = image.name;
+	srcCard.src = image.link;
+	srcCard.alt = image.name;
+}
 
-	cardName.textContent = cardData.name;
-	cardImage.src = cardData.link;
-	cardImage.alt = cardData.name;
+const createCard = (data) => {
+	const card = new Card(data, '#cards-element', viewPicture);
+	return card.generateCard();
+}
 
-	const buttonLike = cardElement.querySelector('.element__button-like');
-	const buttonDelete = cardElement.querySelector('.element__button-delete');
-
-	const handleDelete = () => {
-		cardElement.remove();
-	};
-
-	const handleLike = () => {
-		buttonLike.classList.toggle('element__button-like_active');
-	};
-
-	buttonLike.addEventListener('click', handleLike);
-	buttonDelete.addEventListener('click', handleDelete);
-
-	cardImage.addEventListener('click', () => {
-		openPopup(popupSerchCard);
-		nameCard.textContent = cardName.textContent;
-		srcCard.src = cardImage.src;
-		srcCard.alt = cardName.textContent;
-	});
-
-	return cardElement;
-};
-
-buttonClosePopupSerchCard.addEventListener('click', () => {
-	closePopup(popupSerchCard);
+initialCards.forEach((item) => {
+	const defaultCard = createCard(item);
+	cardList.append(defaultCard);
 })
-
-const renderCardElement = (cardElement) => {
-	cardList.append(cardElement);
-};
-
-initialCards.forEach((element) => {
-	renderCardElement(createCardElement(element));
-});
 
 const handleNewCardFormSubmit = (evt) => {
 	evt.preventDefault();
@@ -171,9 +144,19 @@ const handleNewCardFormSubmit = (evt) => {
 		link: srcImage.value
 	}
 
-	cardList.prepend(createCardElement(newCard));
+	cardList.prepend(createCard(newCard));
 	formElementNewCard.reset();
 	closePopup(popupNewCard);
 };
 
 formElementNewCard.addEventListener('submit', handleNewCardFormSubmit);
+
+buttonClosePopupSerchCard.addEventListener('click', () => {
+	closePopup(popupSerchCard);
+})
+
+const profileValidator = new FormValidator(enableValidation, formElementProfile);
+profileValidator.enableValidation();
+
+const cardValidator = new FormValidator(enableValidation, formElementNewCard);
+cardValidator.enableValidation();
