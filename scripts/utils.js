@@ -24,7 +24,7 @@ const initialCards = [{
 }
 ];
 
-const enableValidation = {
+const validationConfig = {
 	formSelector: '.popup__form',
 	inputSelector: '.popup__input',
 	submitButtonSelector: '.popup__button-submit',
@@ -34,4 +34,4 @@ const enableValidation = {
 };
 
 
-export { initialCards, enableValidation };
+export { initialCards, validationConfig };

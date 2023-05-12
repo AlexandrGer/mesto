@@ -30,12 +30,13 @@
 					<div class="profile__description">
 						<div class="profile__container">
 							<h1 class="profile__name">Жак-Ив Кусто</h1>
-							<button class="profile__button-edit button" type="button"></button>
+							<button class="profile__button-edit button" type="button"
+								aria-label="Редактировать профиль"></button>
 						</div>
 						<p class="profile__job">Исследователь океана</p>
 					</div>
 				</div>
-				<button class="profile__button-add button" type="button"></button>
+				<button class="profile__button-add button" type="button" aria-label="Добавить карточку"></button>
 			</section>
 
 			<!-- SECTION ELEMENTS -->
@@ -59,23 +60,24 @@
 
 	<div class="popup popup_type_edit">
 		<div class="popup__container">
-			<button class="popup__button-close button" type="button"></button>
+			<button class="popup__button-close button" type="button" aria-label="Закрыть"></button>
 			<form name="editProfile" class="popup__form" novalidate>
 				<h3 class="popup__title">Редактировать профиль</h3>
-				<input id="input-name" class="popup__input popup__input_type_name" type="text" required minlength="2"
-					maxlength="40">
+				<input id="input-name" class="popup__input popup__input_type_name" type="text" placeholder="Имя" required
+					minlength="2" maxlength="40">
 				<span id="input-name-error" class="popup__input-error"></span>
-				<input id="input-job" class="popup__input popup__input_type_job" type="text" required minlength="2"
-					maxlength="200">
+				<input id="input-job" class="popup__input popup__input_type_job" type="text" placeholder="О себе" required
+					minlength="2" maxlength="200">
 				<span id="input-job-error" class="popup__input-error"></span>
-				<button class="popup__button-submit button" type="submit">Сохранить</button>
+				<button class="popup__button-submit button" type="submit"
+					aria-label="Сохранить изменения">Сохранить</button>
 			</form>
 		</div>
 	</div>
 
 	<div class="popup popup_type_new-card">
 		<div class="popup__container">
-			<button class="popup__button-close button" type="button"></button>
+			<button class="popup__button-close button" type="button" aria-label="Закрыть"></button>
 			<form name="addCards" class="popup__form" novalidate>
 				<h3 class="popup__title">Новое место</h3>
 				<input id="input-title" class="popup__input popup__input_type_title" type="text" placeholder="Название"
@@ -84,14 +86,14 @@
 				<input id="input-img" class="popup__input popup__input_type_src" type="url" placeholder="Ссылка на картинку"
 					required>
 				<span id="input-img-error" class="popup__input-error"></span>
-				<button class="popup__button-submit button" type="submit">Создать</button>
+				<button class="popup__button-submit button" type="submit" aria-label="Создать карточку">Создать</button>
 			</form>
 		</div>
 	</div>
 
 	<div class="popup popup_type_view-img">
 		<div class="popup__container popup__container_type_img">
-			<button class="popup__button-close button" type="button"></button>
+			<button class="popup__button-close button" type="button" aria-label="Закрыть"></button>
 			<figure class="popup__container-image">
 				<img src="#" alt="#" class="popup__img">
 				<figcaption class="popup__caption"></figcaption>
@@ -104,18 +106,14 @@
 	<template id="cards-element">
 		<li class="element">
 			<img src="#" alt="#" class="element__image">
-			<button class="element__button-delete button" type="button"></button>
+			<button class="element__button-delete button" type="button" aria-label="Удалить карточку"></button>
 			<div class="element__description">
 				<h2 class="element__title"></h2>
-				<button class="element__button-like button" type="button"></button>
+				<button class="element__button-like button" type="button" aria-label="Лайкнуть карточку"></button>
 			</div>
 		</li>
 	</template>
 
-	<script type="module" src="./scripts/Card.js"></script>
-	<script type="module" src="./scripts/FormValidator.js"></script>
-	<script type="module" src="./scripts/validate.js"></script>
-	<script type="module" src="./scripts/utils.js"></script>
 	<script type="module" src="./scripts/index.js"></script>
 </body>
 

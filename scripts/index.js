@@ -1,6 +1,6 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
-import { initialCards, enableValidation } from './utils.js';
+import { initialCards, validationConfig } from './utils.js';
 
 // Кнопки
 const buttonEditProfile = document.querySelector('.profile__button-edit');
@@ -38,7 +38,6 @@ const buttonClosePopupSerchCard = popupSerchCard.querySelector('.popup__button-c
 const openPopup = (popup) => {
 	popup.classList.add('popup_opened');
 	document.addEventListener('keydown', keyHandler);
-	mouseHandler();
 }
 
 // Функция закрытия Попапа
@@ -54,41 +53,22 @@ const keyHandler = (evt) => {
 	}
 }
 
-const disabledButton = (popup) => {
-	const buttonSubmit = popup.querySelector('.popup__button-submit');
-	buttonSubmit.classList.add('popup__button-submit_disabled');
-	buttonSubmit.setAttribute('disabled', true);
-}
-
-const deleteError = (popup) => {
-	const inputs = Array.from(popup.querySelectorAll('.popup__input'));
-	const errors = Array.from(popup.querySelectorAll('.popup__input-error'));
-	inputs.forEach((input, error) => {
-		input.classList.remove('popup__input_text_error');
-	});
-	errors.forEach((error) => {
-		error.classList.remove('popup__input-error_visible');
-		error.textContent = '';
-	})
-}
-
 // Функция закрытия Попапа щелчком по оверлею
-const mouseHandler = () => {
-	const popups = Array.from(document.querySelectorAll('.popup'));
-	popups.forEach((popupElement) => {
-		popupElement.addEventListener('click', function (evt) {
-			if (evt.target.classList.contains('popup')) {
-				evt.target.classList.remove('popup_opened');
-			}
-		})
-	})
+const mouseHandler = (evt) => {
+	if (evt.target.classList.contains('popup')) {
+		closePopup(evt.target);
+	}
 }
+
+popupProfile.addEventListener('mousedown', mouseHandler);
+popupNewCard.addEventListener('mousedown', mouseHandler);
+popupSerchCard.addEventListener('mousedown', mouseHandler);
 
 // Функция которая при открытии заполняет Форму данными из Профиля
 const handleEditProfileClick = () => {
 	openPopup(popupProfile);
-	disabledButton(popupProfile);
-	deleteError(popupProfile);
+	profileValidator.toggleButtonState();
+	profileValidator.deleteErrors();
 	nameInput.value = nameProfile.textContent;
 	jobInput.value = jobProfile.textContent;
 }
@@ -112,14 +92,15 @@ formElementProfile.addEventListener('submit', handleProfileFormSubmit);
 
 buttonAddNewCard.addEventListener('click', () => {
 	openPopup(popupNewCard);
-	disabledButton(popupNewCard);
+	cardValidator.toggleButtonState();
+	cardValidator.deleteErrors();
 });
 
 buttonClosePopupNewCard.addEventListener('click', () => {
 	closePopup(popupNewCard);
 });
 
-const viewPicture = (image) => {
+const openPopupImage = (image) => {
 	openPopup(popupSerchCard);
 	nameCard.textContent = image.name;
 	srcCard.src = image.link;
@@ -127,7 +108,7 @@ const viewPicture = (image) => {
 }
 
 const createCard = (data) => {
-	const card = new Card(data, '#cards-element', viewPicture);
+	const card = new Card(data, '#cards-element', openPopupImage);
 	return card.generateCard();
 }
 
@@ -155,8 +136,8 @@ buttonClosePopupSerchCard.addEventListener('click', () => {
 	closePopup(popupSerchCard);
 })
 
-const profileValidator = new FormValidator(enableValidation, formElementProfile);
+const profileValidator = new FormValidator(validationConfig, formElementProfile);
 profileValidator.enableValidation();
 
-const cardValidator = new FormValidator(enableValidation, formElementNewCard);
+const cardValidator = new FormValidator(validationConfig, formElementNewCard);
 cardValidator.enableValidation();
