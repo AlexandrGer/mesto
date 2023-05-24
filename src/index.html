@@ -5,7 +5,6 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./pages/index.css">
 	<title>Место</title>
 </head>
 
@@ -15,7 +14,7 @@
 		<!-- HEADER -->
 
 		<header class="header">
-			<img src="./images/logo.svg" alt="Логотип" class="logo">
+			<img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="logo">
 		</header>
 
 		<!-- CONTENT -->
@@ -26,7 +25,7 @@
 
 			<section class="profile page__profile">
 				<div class="profile__info">
-					<img src="./images/Avatar.jpg" alt="Аватар" class="profile__avatar">
+					<img src="<%=require('./images/Avatar.jpg')%>" alt="Аватар" class="profile__avatar">
 					<div class="profile__description">
 						<div class="profile__container">
 							<h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -63,11 +62,11 @@
 			<button class="popup__button-close button" type="button" aria-label="Закрыть"></button>
 			<form name="editProfile" class="popup__form" novalidate>
 				<h3 class="popup__title">Редактировать профиль</h3>
-				<input id="input-name" class="popup__input popup__input_type_name" type="text" placeholder="Имя" required
-					minlength="2" maxlength="40">
+				<input id="input-name" name="profileName" class="popup__input popup__input_type_name" type="text"
+					placeholder="Имя" required minlength="2" maxlength="40">
 				<span id="input-name-error" class="popup__input-error"></span>
-				<input id="input-job" class="popup__input popup__input_type_job" type="text" placeholder="О себе" required
-					minlength="2" maxlength="200">
+				<input id="input-job" name="profileJob" class="popup__input popup__input_type_job" type="text"
+					placeholder="О себе" required minlength="2" maxlength="200">
 				<span id="input-job-error" class="popup__input-error"></span>
 				<button class="popup__button-submit button" type="submit"
 					aria-label="Сохранить изменения">Сохранить</button>
@@ -80,11 +79,11 @@
 			<button class="popup__button-close button" type="button" aria-label="Закрыть"></button>
 			<form name="addCards" class="popup__form" novalidate>
 				<h3 class="popup__title">Новое место</h3>
-				<input id="input-title" class="popup__input popup__input_type_title" type="text" placeholder="Название"
-					required minlength="2" maxlength="30">
+				<input id="input-title" name="imageName" class="popup__input popup__input_type_title" type="text"
+					placeholder="Название" required minlength="2" maxlength="30">
 				<span id="input-title-error" class="popup__input-error"></span>
-				<input id="input-img" class="popup__input popup__input_type_src" type="url" placeholder="Ссылка на картинку"
-					required>
+				<input id="input-img" name="imageLink" class="popup__input popup__input_type_src" type="url"
+					placeholder="Ссылка на картинку" required>
 				<span id="input-img-error" class="popup__input-error"></span>
 				<button class="popup__button-submit button" type="submit" aria-label="Создать карточку">Создать</button>
 			</form>
@@ -114,7 +113,6 @@
 		</li>
 	</template>
 
-	<script type="module" src="./scripts/index.js"></script>
 </body>
 
 </html>
