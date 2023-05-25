@@ -25,7 +25,6 @@ export const formElementNewCard = popupNewCard.querySelector('.popup__form');
 export const popupSerchCard = document.querySelector('.popup_type_view-img');
 // export const nameCard = popupSerchCard.querySelector('.popup__caption');
 // export const srcCard = popupSerchCard.querySelector('.popup__img');
-// export const buttonClosePopupSerchCard = popupSerchCard.querySelector('.popup__button-close');
 
 
 export const initialCards = [{

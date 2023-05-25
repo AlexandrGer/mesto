@@ -1,8 +1,8 @@
 import { Popup } from "./Popup";
 
 export class PopupWithForm extends Popup {
-	constructor({ popupSelector, handleFormSubmit }) {
-		super(popupSelector);
+	constructor({ popupElement, handleFormSubmit }) {
+		super(popupElement);
 
 		this._handleFormSubmit = handleFormSubmit;
 
@@ -30,8 +30,8 @@ export class PopupWithForm extends Popup {
 		});
 	}
 
-	closePopup() {
-		super.closePopup();
+	close() {
+		super.close();
 
 		this._form.reset();
 	}

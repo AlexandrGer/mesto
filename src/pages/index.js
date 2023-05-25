@@ -28,7 +28,7 @@ const createCard = (cardItem) => {
 	const card = new Card({
 		data: cardItem,
 		handleCardClick: () => {
-			popupSerchImage.openPopup(cardItem);
+			popupSerchImage.open(cardItem);
 		}
 	},
 		'#cards-element')
@@ -62,32 +62,32 @@ const userInfo = new UserInfo({
 
 // Создание класса Попапа редактирования Профиля
 const popupEditProfile = new PopupWithForm({
-	popupSelector: popupProfile,
+	popupElement: popupProfile,
 	handleFormSubmit: (data) => {
 		userInfo.setUserInfo({
 			userName: data.profileName,
 			userDescription: data.profileJob
 		});
-		popupEditProfile.closePopup();
+		popupEditProfile.close();
 	}
 })
 
 // Создание класса Попапа добавления Карточки
 const popupAddCard = new PopupWithForm({
-	popupSelector: popupNewCard,
+	popupElement: popupNewCard,
 	handleFormSubmit: (data) => {
 		const newCard = {
 			name: data.imageName,
 			link: data.imageLink
 		}
 		cardsList.addNewItem(createCard(newCard));
-		popupAddCard.closePopup();
+		popupAddCard.close();
 	}
 })
 
 // Слушатель на кнопку Редактирования Профиля
 buttonEditProfile.addEventListener('click', () => {
-	popupEditProfile.openPopup();
+	popupEditProfile.open();
 	profileValidator.deleteErrors();
 	const user = userInfo.getUserInfo();
 	nameInput.value = user.name;
@@ -96,7 +96,7 @@ buttonEditProfile.addEventListener('click', () => {
 
 // Слушатель на кнопку Добавления Карточки
 buttonAddNewCard.addEventListener('click', () => {
-	popupAddCard.openPopup();
+	popupAddCard.open();
 	cardValidator.toggleButtonState();
 	cardValidator.deleteErrors();
 })
