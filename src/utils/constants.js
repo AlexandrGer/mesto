@@ -1,10 +1,12 @@
 // Кнопки
 export const buttonEditProfile = document.querySelector('.profile__button-edit');
 export const buttonAddNewCard = document.querySelector('.profile__button-add');
+export const buttonEditAvatar = document.querySelector('.profile__button-avatar')
 
 // Переменные из секции Профиль
 export const nameProfile = document.querySelector('.profile__name');
 export const jobProfile = document.querySelector('.profile__job');
+export const avatarProfile = document.querySelector('.profile__avatar');
 
 // Контейнер для вставки Карточек
 export const cardList = document.querySelector('.elements__items');
@@ -25,6 +27,13 @@ export const formElementNewCard = popupNewCard.querySelector('.popup__form');
 export const popupSerchCard = document.querySelector('.popup_type_view-img');
 // export const nameCard = popupSerchCard.querySelector('.popup__caption');
 // export const srcCard = popupSerchCard.querySelector('.popup__img');
+
+// Переменные Попапа Смены аватара
+export const popupAvatar = document.querySelector('.popup_type_edit-avatar');
+export const formElementAvatar = popupAvatar.querySelector('.popup__form');
+export const avatarInput = popupAvatar.querySelector('.popup__input_type_avatar');
+
+export const popupDelete = document.querySelector('.popup_type_delete-card');
 
 
 export const initialCards = [{

@@ -11,7 +11,7 @@
 <body class="page">
 	<div class="page__container">
 
-		<!-- HEADER   -->
+		<!-- HEADER-->
 
 		<header class="header">
 			<img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="logo">
@@ -25,7 +25,11 @@
 
 			<section class="profile page__profile">
 				<div class="profile__info">
-					<img src="<%=require('./images/Avatar.jpg')%>" alt="Аватар" class="profile__avatar">
+					<div class="profile__avatar-container">
+						<img src="<%=require('./images/Avatar.jpg')%>" alt="Аватар" class="profile__avatar">
+						<button class="profile__button-avatar button" type="button"
+							aria-label="Редактировать аватар"></button>
+					</div>
 					<div class="profile__description">
 						<div class="profile__container">
 							<h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -57,6 +61,7 @@
 
 	<!-- POPUPS -->
 
+	<!-- Попап Редактирования Профиля -->
 	<div class="popup popup_type_edit">
 		<div class="popup__container">
 			<button class="popup__button-close button" type="button" aria-label="Закрыть"></button>
@@ -74,6 +79,7 @@
 		</div>
 	</div>
 
+	<!-- Попап Добавления Карточки -->
 	<div class="popup popup_type_new-card">
 		<div class="popup__container">
 			<button class="popup__button-close button" type="button" aria-label="Закрыть"></button>
@@ -90,6 +96,7 @@
 		</div>
 	</div>
 
+	<!-- Попап Просмотра Картинки -->
 	<div class="popup popup_type_view-img">
 		<div class="popup__container popup__container_type_img">
 			<button class="popup__button-close button" type="button" aria-label="Закрыть"></button>
@@ -97,6 +104,31 @@
 				<img src="#" alt="#" class="popup__img">
 				<figcaption class="popup__caption"></figcaption>
 			</figure>
+		</div>
+	</div>
+
+	<!-- Попап Редактирования Аватарки -->
+	<div class="popup popup_type_edit-avatar">
+		<div class="popup__container">
+			<button class="popup__button-close button" type="button" aria-label="Закрыть"></button>
+			<form name="editAvatar" class="popup__form" novalidate>
+				<h3 class="popup__title">Обновить аватар</h3>
+				<input id="input-src" name="imageAvatar" class="popup__input popup__input_type_avatar" type="url"
+					placeholder="Ссылка на картинку" required>
+				<span id="input-src-error" class="popup__input-error"></span>
+				<button class="popup__button-submit button" type="submit"
+					aria-label="Сохранить изменения">Сохранить</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Попап Подтверждения Удаления Карточки -->
+	<div class="popup popup_type_delete-card">
+		<div class="popup__container">
+			<button class="popup__button-close button" type="button" aria-label="Закрыть"></button>
+			<h3 class="popup__title popup__title_type_delete-card">Вы уверены?</h3>
+			<button class="popup__button-submit button" type="submit" aria-label="Подтверждение удаления">Да</button>
+			</form>
 		</div>
 	</div>
 
@@ -108,7 +140,10 @@
 			<button class="element__button-delete button" type="button" aria-label="Удалить карточку"></button>
 			<div class="element__description">
 				<h2 class="element__title"></h2>
-				<button class="element__button-like button" type="button" aria-label="Лайкнуть карточку"></button>
+				<div class="element__container-likes">
+					<button class="element__button-like button" type="button" aria-label="Лайкнуть карточку"></button>
+					<p class="element__like-counter">0</p>
+				</div>
 			</div>
 		</li>
 	</template>
