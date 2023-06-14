@@ -8,7 +8,6 @@ import { PopupWithDelete } from '../components/PopupWithDelete';
 import { Section } from '../components/Section';
 import { Api } from '../components/Api';
 import {
-	initialCards, // массив с карточками
 	validationConfig, // валидация форм
 	formElementProfile, // форма Профиля
 	formElementNewCard, // форма Создания карточки
@@ -82,8 +81,6 @@ const createCard = (cardItem) => {
 	return card.generateCard();
 }
 
-
-
 // Создание класса Секция для Добавления карточек из массива на страницу
 const cardsList = new Section({
 	renderer: (cardItem) => {
@@ -92,14 +89,15 @@ const cardsList = new Section({
 },
 	cardList);
 
+// Загрузка карточек с сервера
 api.getCards().then((cards) => {
 	cardsList.renderItems(cards);
 }).catch((err) => console.log(`При загрузке карточек с сервера возникла ошибка: ${err}`));
 
-
 // Создание класса Попапа просмотра Картинки
 const popupSerchImage = new PopupWithImage(popupSerchCard);
 
+// Создание класса Попапа удаления Картинки
 const popupDeleteCard = new PopupWithDelete({
 	popupElement: popupDelete,
 	cardDelete: (cardId) => {
@@ -107,12 +105,11 @@ const popupDeleteCard = new PopupWithDelete({
 	}
 })
 
-
-
 // Создание класса Попапа редактирования Профиля
 const popupEditProfile = new PopupWithForm({
 	popupElement: popupProfile,
 	handleFormSubmit: (data) => {
+		popupEditProfile.renderLoading(true);
 		api.sendUserData(data)
 			.then((res) => {
 				userInfo.setUserInfo({
@@ -120,7 +117,8 @@ const popupEditProfile = new PopupWithForm({
 					userDescription: res.about
 				});
 				popupEditProfile.close();
-			}).catch((err) => console.log(`При редактировании профиля возникла ошибка: ${err}`));
+			}).catch((err) => console.log(`При редактировании профиля возникла ошибка: ${err}`))
+			.finally(() => { popupEditProfile.renderLoading(false); })
 	}
 })
 
@@ -128,13 +126,15 @@ const popupEditProfile = new PopupWithForm({
 const popupEditAvatar = new PopupWithForm({
 	popupElement: popupAvatar,
 	handleFormSubmit: (data) => {
+		popupEditAvatar.renderLoading(true);
 		api.sendAvatarData(data)
 			.then((res) => {
 				userInfo.setUserAvatar({
 					imageAvatar: res.avatar,
 				});
 				popupEditAvatar.close();
-			}).catch((err) => console.log(`При смене аватара возникла ошибка: ${err}`));
+			}).catch((err) => console.log(`При смене аватара возникла ошибка: ${err}`))
+			.finally(() => { popupEditAvatar.renderLoading(false); })
 	}
 })
 
@@ -142,17 +142,20 @@ const popupEditAvatar = new PopupWithForm({
 const popupAddCard = new PopupWithForm({
 	popupElement: popupNewCard,
 	handleFormSubmit: (data) => {
+		popupAddCard.renderLoading(true);
 		api.addNewCard({ name: data.imageName, link: data.imageLink })
 			.then((card) => {
 				cardsList.addNewItem(createCard(card));
 				popupAddCard.close();
-			}).catch((err) => console.log(`При добавлении карточки возникла ошибка: ${err}`));
+			}).catch((err) => console.log(`При добавлении карточки возникла ошибка: ${err}`))
+			.finally(() => { popupAddCard.renderLoading(false); })
 	}
 })
 
 // Слушатель на кнопку Редактирования Профиля
 buttonEditProfile.addEventListener('click', () => {
 	popupEditProfile.open();
+	profileValidator.toggleButtonState();
 	profileValidator.deleteErrors();
 	const user = userInfo.getUserInfo();
 	nameInput.value = user.name;

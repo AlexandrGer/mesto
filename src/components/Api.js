@@ -18,7 +18,6 @@ export class Api {
 
 	// Отправка полученных данных о пользователе на сервер
 	sendUserData(userData) {
-		console.log(userData)
 		return fetch(`${this._url}/users/me`, {
 			method: 'PATCH',
 			headers: {
