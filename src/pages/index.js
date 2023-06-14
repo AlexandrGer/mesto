@@ -41,8 +41,17 @@ const api = new Api({
 
 let userId;
 
+// Создание класса Информации о Пользователе
+const userInfo = new UserInfo({
+	userNameSelector: nameProfile,
+	userDescriptionSelector: jobProfile,
+	userAvatarSelector: avatarProfile
+})
+
 Promise.all([api.getCards(), api.getUserData()]).then(([cardsArray, userProfileInfo]) => {
 	userId = userProfileInfo._id;
+	userInfo.setUserInfo({ userName: userProfileInfo.name, userDescription: userProfileInfo.about });
+	userInfo.setUserAvatar({ imageAvatar: userProfileInfo.avatar });
 }).catch((err) => console.log(`Возникла ошибка: ${err}`))
 
 // Функция создания карточки и передача ее в Попап просмотра Картинки
@@ -54,7 +63,19 @@ const createCard = (cardItem) => {
 		},
 		handleCardDelete: () => {
 			popupDeleteCard.open(card);
-		}
+		},
+		handleLikeCard: (cardId) => {
+			api.putLike(cardId)
+				.then((res) => {
+					card.toggleLikes(res);
+				}).catch((err) => console.log(`При постановке лайка возникла ошибка: ${err}`));
+		},
+		handleDeleteLikeCard: (cardId) => {
+			api.deleteLike(cardId)
+				.then((res) => {
+					card.toggleLikes(res);
+				}).catch((err) => console.log(`При удаление лайка возникла ошибка: ${err}`));
+		},
 	},
 		userId,
 		'#cards-element')
@@ -86,12 +107,7 @@ const popupDeleteCard = new PopupWithDelete({
 	}
 })
 
-// Создание класса Информации о Пользователе
-const userInfo = new UserInfo({
-	userNameSelector: nameProfile,
-	userDescriptionSelector: jobProfile,
-	userAvatarSelector: avatarProfile
-})
+
 
 // Создание класса Попапа редактирования Профиля
 const popupEditProfile = new PopupWithForm({
@@ -108,6 +124,20 @@ const popupEditProfile = new PopupWithForm({
 	}
 })
 
+// Создания класса Попапа редактирования Аватара
+const popupEditAvatar = new PopupWithForm({
+	popupElement: popupAvatar,
+	handleFormSubmit: (data) => {
+		api.sendAvatarData(data)
+			.then((res) => {
+				userInfo.setUserAvatar({
+					imageAvatar: res.avatar,
+				});
+				popupEditAvatar.close();
+			}).catch((err) => console.log(`При смене аватара возникла ошибка: ${err}`));
+	}
+})
+
 // Создание класса Попапа добавления Карточки
 const popupAddCard = new PopupWithForm({
 	popupElement: popupNewCard,
@@ -117,15 +147,6 @@ const popupAddCard = new PopupWithForm({
 				cardsList.addNewItem(createCard(card));
 				popupAddCard.close();
 			}).catch((err) => console.log(`При добавлении карточки возникла ошибка: ${err}`));
-	}
-})
-
-// Создания класса Попапа редактирования Аватара
-const popupEditAvatar = new PopupWithForm({
-	popupElement: popupAvatar,
-	handleFormSubmit: (data) => {
-		userInfo.setUserAvatar(data);
-		popupEditAvatar.close();
 	}
 })
 

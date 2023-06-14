@@ -20,6 +20,7 @@ export class UserInfo {
 	}
 
 	setUserAvatar({ imageAvatar }) {
+		console.log(imageAvatar)
 		this._userAvatar.src = imageAvatar;
 	}
 }
