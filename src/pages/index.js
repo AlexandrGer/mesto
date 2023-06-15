@@ -51,6 +51,7 @@ Promise.all([api.getCards(), api.getUserData()]).then(([cardsArray, userProfileI
 	userId = userProfileInfo._id;
 	userInfo.setUserInfo({ userName: userProfileInfo.name, userDescription: userProfileInfo.about });
 	userInfo.setUserAvatar({ imageAvatar: userProfileInfo.avatar });
+	cardsList.renderItems(cardsArray);
 }).catch((err) => console.log(`Возникла ошибка: ${err}`))
 
 // Функция создания карточки и передача ее в Попап просмотра Картинки
@@ -61,6 +62,7 @@ const createCard = (cardItem) => {
 			popupSerchImage.open(cardItem);
 		},
 		handleCardDelete: () => {
+			// console.log(card);
 			popupDeleteCard.open(card);
 		},
 		handleLikeCard: (cardId) => {
@@ -89,19 +91,18 @@ const cardsList = new Section({
 },
 	cardList);
 
-// Загрузка карточек с сервера
-api.getCards().then((cards) => {
-	cardsList.renderItems(cards);
-}).catch((err) => console.log(`При загрузке карточек с сервера возникла ошибка: ${err}`));
-
 // Создание класса Попапа просмотра Картинки
 const popupSerchImage = new PopupWithImage(popupSerchCard);
 
 // Создание класса Попапа удаления Картинки
 const popupDeleteCard = new PopupWithDelete({
 	popupElement: popupDelete,
-	cardDelete: (cardId) => {
+	cardDelete: (card, cardId) => {
 		api.deleteCard(cardId)
+			.then(() => {
+				card.removeCard();
+				popupDeleteCard.close();
+			}).catch((err) => console.log(`При удалении карточки возникла ошибка: ${err}`))
 	}
 })
 

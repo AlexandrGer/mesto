@@ -2,16 +2,12 @@ export class Api {
 	constructor(config) {
 		this._url = config.url;
 		this._headers = config.headers;
-		this._authorization = config.headers.authorization;
 	}
 
 	// Получение данных о пользователе с сервера
 	getUserData() {
 		return fetch(`${this._url}/users/me`, {
-			headers: {
-				authorization: '3c161b6c-5a5d-4642-af7d-6f12393d02c0',
-				'Content-type': 'application/json',
-			},
+			headers: this._headers,
 		})
 			.then(this._handleResponse)
 	}
@@ -20,10 +16,7 @@ export class Api {
 	sendUserData(userData) {
 		return fetch(`${this._url}/users/me`, {
 			method: 'PATCH',
-			headers: {
-				authorization: '3c161b6c-5a5d-4642-af7d-6f12393d02c0',
-				'Content-type': 'application/json',
-			},
+			headers: this._headers,
 			body: JSON.stringify({
 				name: userData.profileName,
 				about: userData.profileJob
@@ -36,10 +29,7 @@ export class Api {
 	sendAvatarData(userAvatar) {
 		return fetch(`${this._url}/users/me/avatar`, {
 			method: 'PATCH',
-			headers: {
-				authorization: '3c161b6c-5a5d-4642-af7d-6f12393d02c0',
-				'Content-type': 'application/json',
-			},
+			headers: this._headers,
 			body: JSON.stringify({
 				avatar: userAvatar.imageAvatar
 			})
@@ -51,10 +41,7 @@ export class Api {
 	addNewCard({ name, link }) {
 		return fetch(`${this._url}/cards`, {
 			method: 'POST',
-			headers: {
-				authorization: '3c161b6c-5a5d-4642-af7d-6f12393d02c0',
-				'Content-type': 'application/json',
-			},
+			headers: this._headers,
 			body: JSON.stringify({ name, link })
 		})
 			.then(this._handleResponse)
@@ -63,10 +50,7 @@ export class Api {
 	// Загрузка карточек с сервера
 	getCards() {
 		return fetch(`${this._url}/cards`, {
-			headers: {
-				authorization: '3c161b6c-5a5d-4642-af7d-6f12393d02c0',
-				'Content-type': 'application/json',
-			},
+			headers: this._headers,
 		})
 			.then(this._handleResponse)
 	}
@@ -75,10 +59,7 @@ export class Api {
 	deleteCard(cardId) {
 		return fetch(`${this._url}/cards/${cardId}`, {
 			method: 'DELETE',
-			headers: {
-				authorization: '3c161b6c-5a5d-4642-af7d-6f12393d02c0',
-				'Content-type': 'application/json',
-			},
+			headers: this._headers,
 		})
 			.then(this._handleResponse)
 	}
@@ -87,10 +68,7 @@ export class Api {
 	putLike(cardId) {
 		return fetch(`${this._url}/cards/${cardId}/likes`, {
 			method: 'PUT',
-			headers: {
-				authorization: '3c161b6c-5a5d-4642-af7d-6f12393d02c0',
-				'Content-type': 'application/json',
-			},
+			headers: this._headers,
 		})
 			.then(this._handleResponse)
 	}
@@ -99,10 +77,7 @@ export class Api {
 	deleteLike(cardId) {
 		return fetch(`${this._url}/cards/${cardId}/likes`, {
 			method: 'DELETE',
-			headers: {
-				authorization: '3c161b6c-5a5d-4642-af7d-6f12393d02c0',
-				'Content-type': 'application/json',
-			},
+			headers: this._headers,
 		})
 			.then(this._handleResponse)
 	}
