@@ -43,7 +43,7 @@
 .popup__title_type_delete-card{margin:34px 36px 38px}
 .popup__input{border:0;border-bottom:1px solid rgba(0,0,0,.2);box-sizing:border-box;color:#000;font-size:14px;font-weight:400;line-height:17px;margin:0 36px 5px;outline:none;padding:0 0 13px}@media screen and (max-width:540px){.popup__input{margin:0 22px 5px}}
 .popup__input_text_error{border-color:red}
-.popup__input-error{color:red;font-size:12px;font-weight:400;height:0;line-height:15px;margin:0 36px 25px;opacity:0}.popup__input-error:last-of-type{margin-bottom:31px}
+.popup__input-error{color:red;font-size:12px;font-weight:400;height:0;line-height:15px;margin:0 36px 28px;opacity:0}.popup__input-error:last-of-type{margin-bottom:31px}
 .popup__input-error_visible{opacity:1}
 .popup__button-submit{align-self:center;background-color:#000;border:1px solid #000;border-radius:2px;color:#fff;font-size:18px;font-weight:400;line-height:22px;margin:0 36px 37px;opacity:1;transition:opacity 1s ease}.popup__button-submit:hover{opacity:.8}@media screen and (max-width:540px){.popup__button-submit{font-size:14px;line-height:17px;margin:0 22px 25px;padding:14px 82px;text-align:center}}
 .popup__button-submit_disabled{background-color:#fff;border:1px solid rgba(0,0,0,.2);color:rgba(0,0,0,.2);cursor:no-drop}
