@@ -1,3 +1,7 @@
+<h1>Учебный frontend-проект "Mesto"</h1>
+
+![](https://alexandrger.github.io/mesto/)
+
 # Проект: Место
 
 ### Описание проектной работы
