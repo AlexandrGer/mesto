@@ -25,7 +25,7 @@
 
 <h2>Инструкция по установке</h2>
 
-1. ```git clone https://github.com/AlexandrGer/russian-travel.git``` - клонируем репозиторий
+1. ```git clone https://github.com/AlexandrGer/mesto.git``` - клонируем репозиторий
 2. ```npm i``` - устанавливаем зависиимости 
 3.  ```npm run dev``` - запускаем проект в режиме разработчика
 
