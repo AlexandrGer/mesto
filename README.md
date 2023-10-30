@@ -23,6 +23,12 @@
 ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
+<h2>Инструкция по установке</h2>
+
+1. ```git clone https://github.com/AlexandrGer/russian-travel.git``` - клонируем репозиторий
+2. ```npm i``` - устанавливаем зависиимости 
+3.  ```npm run dev``` - запускаем проект в режиме разработчика
+
 <h2>Методология и процесс создания</h2>
 Работа была выполнена в 6 этапов:
 
