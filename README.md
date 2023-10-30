@@ -1,6 +1,8 @@
 <h1>Учебный frontend-проект "Mesto"</h1>
 
-![](./src/images/скрин-проекта.png)
+<a href="https://alexandrger.github.io/mesto/" target="blank">
+<img src='./src/images/скрин-проекта.png'>
+</a>
 
 <h2>Описание проекта</h2>
 
